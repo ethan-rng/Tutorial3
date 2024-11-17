@@ -13,46 +13,12 @@ function App() {
   
     // TODO: Implement this function
     const postToGPT = async () => {
-      setLoading(true)
-      try {
-        const response = await fetch(process.env.REACT_APP_YOUR_API_KEY + 'random-greeting', {
-          method: 'POST', // Specify the request method
-          headers: {
-            'Content-Type': 'application/json', // Indicate the content type
-          },
-          body: JSON.stringify(currMessage), // Convert the data to JSON
-        });
-  
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-  
-        const data = await response.json()
-        console.log(data)
-        return data.message
-  
-      } catch (error) {
-        alert(error.message)
-      } finally {
-        setLoading(false);
-      }
+      
     }
   
     // TODO: Implement this function
     const handleSubmit = async () => {
-      if (currSender != "" && currMessage != "" && currSender != "GPT") {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { sender: "Me", text: currMessage },
-        ]);
     
-        const response = await postToGPT();
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { sender: "GPT", text: response },
-        ]);
-        setCurrMessage("");
-      }
     };
 
   return (
