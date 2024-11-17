@@ -1,0 +1,44 @@
+.message-bubble {
+    position: relative;
+    display: inline-block;
+    color: white;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 16px;
+    padding: 10px;
+    border-radius: 16px;
+    border: 2px solid transparent; /* Adjust as needed */
+  }
+  
+  .message-bubble.bg-gray-500 {
+    background-color: #6b7280;
+  }
+  
+  .message-bubble.bg-blue-500 {
+    background-color: #3b82f6;
+  }
+  
+  .message-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Adjust based on the size of the tail */
+    left: 10px; /* Adjust based on the position */
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid inherit;
+    transform: rotate(0deg); /* Adjust direction based on sender */
+  }
+  
+  .message-bubble.bg-gray-500::after {
+    border-top-color: #6b7280; /* Matches the bubble color */
+  }
+  
+  .message-bubble.bg-blue-500::after {
+    border-top-color: #3b82f6; /* Matches the bubble color */
+  }
+  
+  .message-text {
+    white-space: pre-wrap; /* Ensure that whitespace is preserved */
+  }
